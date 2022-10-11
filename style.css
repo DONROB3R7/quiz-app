@@ -8,6 +8,10 @@ ul {
     margin: 0;
 }
 
+ul label {
+    cursor: pointer;
+}
+
 h1{
     text-align: center;
 }
@@ -30,6 +34,15 @@ h1{
 .submit {
     display: block;
     margin: 10px auto;
+}
+
+.question-left{
+    margin: 10px 5px;
+}
+
+.question-left span {
+    padding-left: 30px;
+    font-weight: bold;
 }
 
 /* Button  Css style */

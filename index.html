@@ -13,25 +13,28 @@
         <!-- Main Question container -->
         <div class="question-container">
             <h3 id="question">Question 1</h3>
-            <ul>
-                <li>
-                    <input type="radio" id="a" name="answer" />
-                    <label for="a">Question 1</label>
-                </li>
-                <li>
-                    <input type="radio"  id="b"  name="answer" />
-                    <label for="b">Question 2</label>
-                </li>
-                <li>
-                    <input type="radio" id="c"   name="answer" />
-                    <label for="c">Question 3</label>
-                </li>
-                <li>
-                    <input type="radio" id="d"  name="answer"  />
-                    <label for="d">Question 4</label>
-                </li>
-            </ul>
-            <button class="submit" id="submit">Submit</button>
+            <div id="show">
+                <div class="question-left">Question Left <span id="questions-left">1/4</span> </div>
+                <ul>
+                    <li>
+                        <input type="radio" id="a" name="answer" />
+                        <label for="a" id="q1">Question 1</label>
+                    </li>
+                    <li>
+                        <input type="radio"  id="b"  name="answer" />
+                        <label for="b" id="q2">Question 2</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="c"   name="answer" />
+                        <label for="c" id="q3">Question 3</label>
+                    </li>
+                    <li>
+                        <input type="radio" id="d"  name="answer"  />
+                        <label for="d" id="q4">Question 4</label>
+                    </li>
+                </ul>
+                <button class="submit" id="submit">Submit</button>
+            </div>
         </div>
     </main>
 </body>

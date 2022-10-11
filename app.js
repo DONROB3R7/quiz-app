@@ -2,29 +2,29 @@
 
 
 // Question data 
-const questionsData = 
+const currentQuizData = 
 [
   {
     question: "What is the capital of United Kingdom?",
     choices: ["Manchester", "Birmingham", "London", "Birmingham"],
-    answer: 2
+    answer: "c"
   },
   
   {
     question: "What is the capital of United States?",
     choices: ["California", "New York", "Miami", "Florida"],
-    answer: 1
+    answer: "b"
   },
 
   {
     question: "How many minutes are in a full week?",
     choices: [10900, 10080, 9000, 600],
-    answer: 1
+    answer: "b"
   },
   {
     question: "How many elements are in the periodic table?",
     choices: [118, 10080, 9000,600],
-    answer: 0
+    answer: "a"
   }
 
 ];
@@ -32,8 +32,11 @@ const questionsData =
 
 // Global Variable 
 const question = document.getElementById('question');
-let currentQuiz = 0;
 const button  = document.getElementById('submit');
+
+// Global Variable mutable
+let currentQuiz = 0;
+let score = 0;
 
 // Global Variable Answers choice
 const answer1 = document.getElementById('a');
@@ -54,13 +57,23 @@ const show = document.getElementById('show');
 // Global Variable question left 
 const questionsLeft = document.getElementById('questions-left');
 
+// Global Variable answer input left 
+const radioInput = document.querySelectorAll('.radio-input');
+
 // Added the main quiz function
 function loadQuiz(){
-    const currentQuizData = questionsData;
+    deselectAnswers();
     if(currentQuizData.length <= currentQuiz){
+
         question.innerText = 'Thanks for the answers!'; 
+        const span = document.createElement('span');
+        const spanElemnt = question.appendChild(span);
+        spanElemnt.innerText = `You answered ${score} correctly from ${currentQuizData.length}`;
         show.remove();
+        console.log(`score : ${score}`);
+
     } else {
+
         // InnerTest for h3 in html
         question.innerText = currentQuizData[currentQuiz].question; 
 
@@ -74,11 +87,26 @@ function loadQuiz(){
         question4.innerText = currentQuizData[currentQuiz].choices[3];
     }
 
-  
+}
 
 
-    
-    console.log(currentQuizData);
+function getSelected() {
+    let valueSelected = undefined;
+
+    radioInput.forEach((items) => {
+        if (items.checked) {
+            valueSelected = true;
+        }
+    });
+
+    return valueSelected;
+}
+
+
+function deselectAnswers() {
+    radioInput.forEach((items) => {
+        items.checked = false;
+    });
 }
 
 
@@ -86,13 +114,30 @@ function loadQuiz(){
 button.addEventListener("click", submitData);
 
 function submitData(){
+    const selected = getSelected();
+
+    if(selected){
+       
+     // Colect the answer from html in value
+           radioInput.forEach( items => {
+            if(items.checked){
+                
+                if(items.id == currentQuizData[currentQuiz].answer ){
+                    score++;
+                }
+            }
+        })
+
     currentQuiz++;
+      
     loadQuiz();
+    }else{
+        alert('Please select one answer');
+        return false
+    }
+
+    
 }
-
-
-
-console.log(button);
 
 // Initial call 
 loadQuiz();

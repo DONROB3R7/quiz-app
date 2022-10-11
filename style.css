@@ -1,22 +1,10 @@
-html{
-    background-color:lightsteelblue;
-}
+/* General Css rules */
+html{ background-color:lightsteelblue; }
+ul { list-style: none; padding:0; margin: 0; }
+ul label { cursor: pointer; }
+h1{ text-align: center; }
 
-ul {
-    list-style: none;
-    padding:0;
-    margin: 0;
-}
-
-ul label {
-    cursor: pointer;
-}
-
-h1{
-    text-align: center;
-}
-
-
+/* Main Css rules */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -43,6 +31,13 @@ h1{
 .question-left span {
     padding-left: 30px;
     font-weight: bold;
+}
+
+/* Javascript css */
+#question span {
+    display: block;
+    margin: 15px 0px;
+    font-weight: 400;
 }
 
 /* Button  Css style */
